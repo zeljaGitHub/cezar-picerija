@@ -5,6 +5,7 @@ const ImageGallery = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
   const audioRef = useRef(null);
   const galleryRef = useRef(null);
   const startXRef = useRef(null);
@@ -55,9 +56,18 @@ const ImageGallery = () => {
     }
   };
 
+  //   const openGallery = () => {
+  //     playSound();
+  //     setIsOpen(true);
+  //   };
+
   const openGallery = () => {
+    setIsPressed(true); // Postavi dugme u pritisnuto stanje
     playSound();
-    setIsOpen(true);
+    setTimeout(() => {
+      setIsOpen(true);
+      setIsPressed(false); // Vrati dugme u normalno stanje nakon otvaranja galerije
+    }, 150); // Kratak delay za vizuelni efekat
   };
 
   const closeGallery = () => setIsOpen(false);
@@ -139,11 +149,16 @@ const ImageGallery = () => {
   return (
     <div className="gallery-container">
       <audio ref={audioRef} src="/bell.mp3" preload="auto" />
-      <button onClick={openGallery} className="gallery-button">
+      <button
+        onClick={openGallery}
+        className="gallery-button"
+        aria-pressed={isPressed}
+      >
         <img
-          src="/dugmeRRRRR.png"
+          src={isPressed ? "/dugme-pritisnuto.png" : "/dugme.png"}
           alt="Open gallery"
           className="button-image"
+          style={{ pointerEvents: "none" }}
         />
       </button>
 

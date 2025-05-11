@@ -75,6 +75,7 @@ button {
 /* ========================================================== */
 
 .image-container {
+  position: relative;
   aspect-ratio: 16 / 9;
   width: 100%;
   max-height: 100vh;
@@ -84,4 +85,6 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative; /* Dodajemo */
+  z-index: 0; /* Normalna vrednost */
 }

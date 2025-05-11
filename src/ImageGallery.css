@@ -1,5 +1,13 @@
 .gallery-container {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Dodajemo visinu za centriranje */
+  z-index: 10;
+  display: flex; /* Koristimo flex za centriranje */
+  justify-content: center; /* Centriramo horizontalno */
+  align-items: center; /* Centriramo vertikalno */
 }
 
 .gallery-button {
@@ -7,12 +15,20 @@
   border: none;
   padding: 0;
   cursor: pointer;
+  position: relative; /* Dodajemo za bolju kontrolu */
+  width: auto; /* Prilagodljiva širina */
+  height: auto; /* Prilagodljiva visina */
 }
 
 .button-image {
-  max-width: 100%;
-  height: auto;
+  position: relative; /* Menjamo iz absolute u relative */
+  z-index: 20;
+  object-fit: contain;
+  max-width: 100%; /* Vraćamo max-width */
+  max-height: 400px; /* Koristimo max-height umesto height */
+  height: auto; /* Omogućavamo responsivnost */
   display: block;
+  margin: 0 auto; /* Dodatno centriranje */
 }
 
 .gallery-overlay {
