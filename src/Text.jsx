@@ -9,7 +9,7 @@ const Text = () => {
         left: "15%",
         width: "300px",
         height: "500px",
-        backgroundColor: "rgba(255, 255, 255, 0.3)", // Bela boja sa 70% opacity
+        backgroundColor: "rgba(255, 255, 255, 0.2)", // Bela boja sa 70% opacity
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

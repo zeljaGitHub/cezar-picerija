@@ -21,8 +21,8 @@
 }
 
 .image-button {
-  width: 400px;
-  height: 300px;
+  width: 500px;
+  height: 360px;
   background-image: url("/dugme.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -143,5 +143,10 @@
   .gallery-overlay {
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
+  }
+
+  .image-button {
+    width: 100px;
+    height: 100px;
   }
 }

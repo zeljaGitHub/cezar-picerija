@@ -18,11 +18,13 @@ function App() {
   return (
     <div className="image-container">
       <img
-        src={isMobile ? "/mobile-bg.jpg" : "/proba.png"}
+        src={isMobile ? "/pozadina-mobilni.png" : "/pozadina-samo.png"}
         alt="Pozadina"
         className={`background-image ${isMobile ? "mobile-bg" : "desktop-bg"}`}
         loading="eager"
       />
+      <img src="/pica.png" alt="" className="pica rotate" />
+      <img src="/cvetici.png" alt="" className="cvetici" />
       <ImageGallery />
       <Contact />
       <Text />

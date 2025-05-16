@@ -76,7 +76,7 @@ button {
 
 @font-face {
   font-family: "MyCustomFont";
-  src: url("/DELLYANI.OTF") format("OTF");
+  src: url("/DIRTYHEADLINE.TTF") format("TTF");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -134,4 +134,38 @@ img {
   top: 0;
   left: 0;
   z-index: 0;
+}
+
+.pica {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  scale: 0.95;
+}
+
+@keyframes rotateInfinite {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotateInfinite 60s linear infinite;
+}
+
+.cvetici {
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .pica {
+    display: none;
+  }
+  .cvetici {
+    display: none;
+  }
 }
