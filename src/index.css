@@ -74,7 +74,21 @@ button {
 
 /* ========================================================== */
 
-.image-container {
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("/DELLYANI.OTF") format("OTF");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "MyCustomFont", sans-serif;
+}
+
+/* ========================================================== */
+
+/* .image-container {
   position: relative;
   aspect-ratio: 16 / 9;
   width: 100%;
@@ -85,6 +99,39 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: relative; /* Dodajemo */
-  z-index: 0; /* Normalna vrednost */
+  position: relative; 
+  z-index: 0; 
+} */
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-height: -webkit-fill-available;
+  overflow: hidden;
+}
+
+/* STIL ZA DESKTOP/TABLET (Fokus na desnu stranu) */
+.background-image.desktop-bg {
+  width: auto; /* Omogućava prilagodljivu širinu */
+  height: 100%; /* Popuni visinu ekrana */
+  object-fit: cover; /* Pokriva prostor bez deformacije */
+  object-position: right; /* GARANCIJA: Desna strana NIKAD se ne seče */
+  position: absolute;
+  top: 0;
+  right: 0; /* Poravnaj sliku u desno */
+  z-index: 0;
+  min-width: 100%; /* Ako slika nije dovoljno široka, razvuče se */
+}
+
+/* STIL ZA MOBILNE (Centrirana slika) */
+.background-image.mobile-bg {
+  width: 100%; /* Popuni širinu ekrana */
+  height: 100%; /* Popuni visinu ekrana */
+  object-fit: cover; /* Pokriva prostor bez belih mesta */
+  object-position: center; /* Centriraj sliku */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }

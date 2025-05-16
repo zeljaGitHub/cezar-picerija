@@ -5,12 +5,10 @@ const ImageGallery = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const [isPressed, setIsPressed] = useState(false);
   const audioRef = useRef(null);
   const galleryRef = useRef(null);
   const startXRef = useRef(null);
 
-  // Desktop slike
   const desktopImages = [
     "/desktop-gallery/cezar-desktop-1.png",
     "/desktop-gallery/cezar-desktop-2.png",
@@ -21,7 +19,6 @@ const ImageGallery = () => {
     "/desktop-gallery/cezar-desktop-7.png",
   ];
 
-  // Mobilne slike
   const mobileImages = [
     "/mobile-gallery/cezar-mobile-1.png",
     "/mobile-gallery/cezar-mobile-2.png",
@@ -32,10 +29,15 @@ const ImageGallery = () => {
     "/mobile-gallery/cezar-mobile-7.png",
   ];
 
-  // Odaberi odgovarajući set slika
+  // Dodajte u komponentu
+  useEffect(() => {
+    // Preload pressed button image
+    const img = new Image();
+    img.src = "/dugme-pritisnuto.png";
+  }, []);
+
   const images = isMobile ? mobileImages : desktopImages;
 
-  // Provera da li je mobilni uređaj
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -43,10 +45,7 @@ const ImageGallery = () => {
 
     checkIfMobile();
     window.addEventListener("resize", checkIfMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkIfMobile);
-    };
+    return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
   const playSound = () => {
@@ -56,18 +55,11 @@ const ImageGallery = () => {
     }
   };
 
-  //   const openGallery = () => {
-  //     playSound();
-  //     setIsOpen(true);
-  //   };
-
-  const openGallery = () => {
-    setIsPressed(true); // Postavi dugme u pritisnuto stanje
+  const handleClick = () => {
     playSound();
     setTimeout(() => {
       setIsOpen(true);
-      setIsPressed(false); // Vrati dugme u normalno stanje nakon otvaranja galerije
-    }, 150); // Kratak delay za vizuelni efekat
+    }, 150);
   };
 
   const closeGallery = () => setIsOpen(false);
@@ -80,7 +72,6 @@ const ImageGallery = () => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  // Handle keyboard navigation
   useEffect(() => {
     if (!isOpen) return;
 
@@ -94,7 +85,6 @@ const ImageGallery = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, currentIndex, isMobile]);
 
-  // Handle wheel scroll
   useEffect(() => {
     if (!isOpen || isMobile) return;
 
@@ -107,7 +97,6 @@ const ImageGallery = () => {
     return () => window.removeEventListener("wheel", handleWheel);
   }, [isOpen, currentIndex, isMobile]);
 
-  // Handle touch events for mobile swipe
   useEffect(() => {
     if (!isOpen || !isMobile || !galleryRef.current) return;
 
@@ -123,12 +112,8 @@ const ImageGallery = () => {
       const diffX = startXRef.current - currentX;
 
       if (Math.abs(diffX) > 50) {
-        // Threshold za swipe
-        if (diffX > 0) {
-          goToNext();
-        } else {
-          goToPrev();
-        }
+        if (diffX > 0) goToNext();
+        else goToPrev();
         startXRef.current = null;
       }
     };
@@ -150,17 +135,10 @@ const ImageGallery = () => {
     <div className="gallery-container">
       <audio ref={audioRef} src="/bell.mp3" preload="auto" />
       <button
-        onClick={openGallery}
-        className="gallery-button"
-        aria-pressed={isPressed}
-      >
-        <img
-          src={isPressed ? "/dugme-pritisnuto.png" : "/dugme.png"}
-          alt="Open gallery"
-          className="button-image"
-          style={{ pointerEvents: "none" }}
-        />
-      </button>
+        onClick={handleClick}
+        className="image-button"
+        aria-label="Open gallery"
+      />
 
       {isOpen && (
         <div className="gallery-overlay" ref={galleryRef}>
