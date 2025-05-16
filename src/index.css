@@ -115,7 +115,7 @@ img {
 .background-image.desktop-bg {
   width: auto; /* Omogućava prilagodljivu širinu */
   height: 100%; /* Popuni visinu ekrana */
-  object-fit: cover; /* Pokriva prostor bez deformacije */
+  object-fit: contain; /* Pokriva prostor bez deformacije */
   object-position: right; /* GARANCIJA: Desna strana NIKAD se ne seče */
   position: absolute;
   top: 0;
@@ -128,7 +128,7 @@ img {
 .background-image.mobile-bg {
   width: 100%; /* Popuni širinu ekrana */
   height: 100%; /* Popuni visinu ekrana */
-  object-fit: cover; /* Pokriva prostor bez belih mesta */
+  object-fit: contain; /* Pokriva prostor bez belih mesta */
   object-position: center; /* Centriraj sliku */
   position: absolute;
   top: 0;
