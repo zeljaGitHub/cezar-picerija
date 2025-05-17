@@ -76,7 +76,7 @@ button {
 
 @font-face {
   font-family: "MyCustomFont";
-  src: url("/DIRTYHEADLINE.TTF") format("TTF");
+  src: url("/DIRTYHEADLINE.TTF") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -159,6 +159,7 @@ img {
 .cvetici {
   position: absolute;
   right: 0;
+  height: 100vh;
 }
 
 @media (max-width: 768px) {

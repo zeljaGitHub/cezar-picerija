@@ -6,9 +6,9 @@ const Text = () => {
       style={{
         position: "absolute",
         top: "0",
-        left: "15%",
-        width: "300px",
-        height: "500px",
+        left: "14%",
+        width: "25rem",
+        height: "46rem",
         backgroundColor: "rgba(255, 255, 255, 0.2)", // Bela boja sa 70% opacity
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -26,13 +26,13 @@ const Text = () => {
       }}
     >
       {/* Prvi blok teksta */}
-      <div style={{ marginBottom: "20px", lineHeight: 0.6 }}>
-        <div style={{ fontSize: "24px", fontWeight: "bold" }}>
+      <div style={{ marginBottom: "5rem", lineHeight: 0.8 }}>
+        <div style={{ fontSize: "3.15rem", fontWeight: "bold" }}>
           NA 5 LOKACIJA
         </div>
         <div
           style={{
-            fontSize: "32px",
+            fontSize: "5.5rem",
             fontWeight: "bolder",
             marginTop: "10px",
             color: "#fbca0c",
@@ -43,11 +43,11 @@ const Text = () => {
       </div>
 
       {/* Drugi blok teksta */}
-      <div style={{ marginBottom: "20px", lineHeight: 0.6 }}>
-        <div style={{ fontSize: "20px", fontWeight: "bold" }}>DOSTAVA</div>
+      <div style={{ marginBottom: "5rem", lineHeight: 0.8 }}>
+        <div style={{ fontSize: "2.9rem", fontWeight: "bold" }}>DOSTAVA</div>
         <div
           style={{
-            fontSize: "28px",
+            fontSize: "4.5rem",
             fontWeight: "bold",
             marginTop: "10px",
             color: "#fbca0c",
@@ -58,11 +58,15 @@ const Text = () => {
       </div>
 
       {/* Treći blok teksta */}
-      <div style={{ marginBottom: "20px", lineHeight: 0.6 }}>
-        <div style={{ fontSize: "18px", fontWeight: "bold" }}>...I NA</div>
+      <div style={{ lineHeight: 0.8 }}>
+        <div style={{ fontSize: "4.1rem" }}>
+          <span>...</span>
+          <span style={{ fontWeight: "bold" }}>I NA</span>
+        </div>
+
         <div
           style={{
-            fontSize: "40px",
+            fontSize: "7rem",
             fontWeight: "bolder",
             margin: "10px 0",
             color: "#00ccff",
@@ -70,8 +74,13 @@ const Text = () => {
         >
           WOLT
         </div>
-        <div style={{ fontSize: "20px", fontWeight: "bold" }}>APLIKACIJI</div>
+        <div style={{ fontSize: "3.1rem", fontWeight: "bold" }}>APLIKACIJI</div>
       </div>
+      <img
+        src="/leafs.png"
+        alt=""
+        style={{ position: "absolute", top: "1.5%", left: "-10%" }}
+      />
     </div>
   );
 };

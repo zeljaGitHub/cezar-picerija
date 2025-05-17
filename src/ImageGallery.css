@@ -21,8 +21,8 @@
 }
 
 .image-button {
-  width: 500px;
-  height: 360px;
+  width: 570px;
+  height: 400px;
   background-image: url("/dugme.png");
   background-size: contain;
   background-repeat: no-repeat;
