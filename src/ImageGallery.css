@@ -126,7 +126,7 @@
 /* =================================== */
 
 /* Tablet (768px do 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1201px) {
   .image-button {
     width: 300px;
     height: 300px;

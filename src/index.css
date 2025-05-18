@@ -115,7 +115,7 @@ img {
 .background-image.desktop-bg {
   width: auto; /* Omogućava prilagodljivu širinu */
   height: 100%; /* Popuni visinu ekrana */
-  object-fit: contain; /* Pokriva prostor bez deformacije */
+  object-fit: cover; /* Pokriva prostor bez deformacije */
   object-position: right; /* GARANCIJA: Desna strana NIKAD se ne seče */
   position: absolute;
   top: 0;
