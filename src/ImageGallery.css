@@ -125,6 +125,14 @@
 
 /* =================================== */
 
+/* Tablet (768px do 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .image-button {
+    width: 300px;
+    height: 300px;
+  }
+}
+
 /* Mobile specific styles */
 @media (max-width: 768px) {
   .gallery-image {

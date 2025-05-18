@@ -24,7 +24,7 @@ const Contact = () => {
           flexDirection: "column",
           alignItems: "center",
           fontSize: "3.7rem",
-          fontWeight: "bold",
+          // fontWeight: "bold",
           marginBottom: "6rem",
           lineHeight: "1",
         }}
