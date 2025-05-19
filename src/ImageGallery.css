@@ -70,6 +70,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  touch-action: pan-y;
 }
 
 .gallery-image {

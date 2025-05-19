@@ -27,13 +27,10 @@ const Text = () => {
     >
       {/* Prvi blok teksta */}
       <div style={{ marginBottom: "5rem", lineHeight: 0.8 }}>
-        <div style={{ fontSize: "3.15rem", fontWeight: "bold" }}>
-          NA 5 LOKACIJA
-        </div>
+        <div style={{ fontSize: "3.3rem" }}>NA 5 LOKACIJA</div>
         <div
           style={{
-            fontSize: "5.5rem",
-            fontWeight: "bolder",
+            fontSize: "5.75rem",
             marginTop: "10px",
             color: "#fbca0c",
           }}
@@ -44,11 +41,10 @@ const Text = () => {
 
       {/* Drugi blok teksta */}
       <div style={{ marginBottom: "5rem", lineHeight: 0.8 }}>
-        <div style={{ fontSize: "2.9rem", fontWeight: "bold" }}>DOSTAVA</div>
+        <div style={{ fontSize: "3.05rem" }}>DOSTAVA</div>
         <div
           style={{
-            fontSize: "4.5rem",
-            fontWeight: "bold",
+            fontSize: "4.77rem",
             marginTop: "10px",
             color: "#fbca0c",
           }}
@@ -59,22 +55,18 @@ const Text = () => {
 
       {/* Treći blok teksta */}
       <div style={{ lineHeight: 0.8 }}>
-        <div style={{ fontSize: "4.1rem" }}>
-          <span>...</span>
-          <span style={{ fontWeight: "bold" }}>I NA</span>
-        </div>
+        <div style={{ fontSize: "4.3rem" }}>...I NA</div>
 
         <div
           style={{
-            fontSize: "7rem",
-            fontWeight: "bolder",
+            fontSize: "7.1rem",
             margin: "10px 0",
             color: "#00ccff",
           }}
         >
           WOLT
         </div>
-        <div style={{ fontSize: "3.1rem", fontWeight: "bold" }}>APLIKACIJI</div>
+        <div style={{ fontSize: "3.2rem" }}>APLIKACIJI</div>
       </div>
       <img
         src="/leafs.png"
