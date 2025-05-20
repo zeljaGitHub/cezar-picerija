@@ -163,6 +163,10 @@ img {
 }
 
 @media (max-width: 768px) {
+  .image-container {
+    overflow-x: hidden; /* I dalje blokira horizontalni scroll */
+    overflow-y: visible; /* Dozvoljava vertikalni scroll */
+  }
   .pica {
     display: none;
   }

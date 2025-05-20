@@ -21,7 +21,16 @@ const Text = () => {
       {/* Treći blok teksta */}
       <div className="text-block third-block">
         <div className="text-line">...I NA</div>
-        <div className="text-line blue-text wolt">WOLT</div>
+
+        <a
+          href="https://wolt.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-line blue-text wolt"
+        >
+          WOLT
+        </a>
+
         <div className="text-line">APLIKACIJI</div>
       </div>
 
