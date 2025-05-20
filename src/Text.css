@@ -84,20 +84,42 @@
     height: auto;
     padding: 15px;
     background-color: transparent;
+    margin-top: 5rem;
   }
 
   .text-block {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
-  .text-line {
-    font-size: 2.5rem !important;
+  .first-block .text-line:first-child {
+    font-size: 2rem;
   }
 
-  .first-block .yellow-text,
-  .second-block .yellow-text,
+  .first-block .yellow-text {
+    font-size: 3.5rem;
+    margin-top: 10px;
+  }
+
+  .second-block .text-line:first-child {
+    font-size: 2.2rem;
+  }
+
+  .second-block .yellow-text {
+    font-size: 2.9rem;
+    margin-top: 10px;
+  }
+
+  .third-block .text-line:first-child {
+    font-size: 3rem;
+  }
+
   .third-block .blue-text {
-    font-size: 3.5rem !important;
+    font-size: 5.5rem;
+    margin: 10px 0;
+  }
+
+  .third-block .text-line:last-child {
+    font-size: 2.5rem;
   }
 
   .leaf-image {

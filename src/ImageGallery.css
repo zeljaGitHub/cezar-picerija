@@ -154,7 +154,8 @@
   }
 
   .image-button {
-    width: 100px;
-    height: 100px;
+    margin-top: 32rem;
+    width: 400px;
+    height: 200px;
   }
 }

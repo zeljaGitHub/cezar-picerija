@@ -13,13 +13,15 @@ const Text = () => {
       {/* Drugi blok teksta */}
       <div className="text-block second-block">
         <div className="text-line">DOSTAVA</div>
-        <div className="text-line yellow-text">018588588</div>
+        <div className="text-line yellow-text">
+          <a href="tel:018588588">018588588</a>
+        </div>
       </div>
 
       {/* Treći blok teksta */}
       <div className="text-block third-block">
         <div className="text-line">...I NA</div>
-        <div className="text-line blue-text">WOLT</div>
+        <div className="text-line blue-text wolt">WOLT</div>
         <div className="text-line">APLIKACIJI</div>
       </div>
 
