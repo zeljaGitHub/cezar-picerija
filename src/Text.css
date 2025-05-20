@@ -1,0 +1,107 @@
+/* Osnovni stilovi */
+.text-container {
+  position: absolute;
+  top: 0;
+  left: 14%;
+  width: 25rem;
+  height: 46rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.text-block {
+  margin-bottom: 5rem;
+  line-height: 0.8;
+}
+
+.text-line {
+  font-size: 3.3rem;
+}
+
+.yellow-text {
+  color: #fbca0c;
+}
+
+.blue-text {
+  color: #00ccff;
+}
+
+/* Specifični stilovi za blokove */
+.first-block .text-line:first-child {
+  font-size: 3.3rem;
+}
+
+.first-block .yellow-text {
+  font-size: 5.75rem;
+  margin-top: 10px;
+}
+
+.second-block .text-line:first-child {
+  font-size: 3.05rem;
+}
+
+.second-block .yellow-text {
+  font-size: 4.77rem;
+  margin-top: 10px;
+}
+
+.third-block .text-line:first-child {
+  font-size: 4.3rem;
+}
+
+.third-block .blue-text {
+  font-size: 7.1rem;
+  margin: 10px 0;
+}
+
+.third-block .text-line:last-child {
+  font-size: 3.2rem;
+}
+
+.leaf-image {
+  position: absolute;
+  top: 1.5%;
+  left: -10%;
+}
+
+/* Media upiti za responzivnost */
+@media (max-width: 768px) {
+  .text-container {
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    background-color: transparent;
+  }
+
+  .text-block {
+    margin-bottom: 3rem;
+  }
+
+  .text-line {
+    font-size: 2.5rem !important;
+  }
+
+  .first-block .yellow-text,
+  .second-block .yellow-text,
+  .third-block .blue-text {
+    font-size: 3.5rem !important;
+  }
+
+  .leaf-image {
+    left: -5%;
+    width: 30%;
+  }
+}

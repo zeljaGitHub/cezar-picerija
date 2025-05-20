@@ -7,7 +7,7 @@ const ImageGallery = () => {
   const [isMobile, setIsMobile] = useState(false);
   const audioRef = useRef(null);
   const galleryRef = useRef(null);
-  const startYRef = useRef(null);
+  const startXRef = useRef(null);
 
   const desktopImages = [
     "/desktop-gallery/cezar-desktop-1.png",
@@ -103,18 +103,18 @@ const ImageGallery = () => {
     const galleryElement = galleryRef.current;
 
     const handleTouchStart = (e) => {
-      startYRef.current = e.touches[0].clientY;
+      startXRef.current = e.touches[0].clientX;
     };
 
     const handleTouchMove = (e) => {
-      if (!startYRef.current) return;
-      const currentY = e.touches[0].clientY;
-      const diffY = startYRef.current - currentY;
+      if (!startXRef.current) return;
+      const currentX = e.touches[0].clientX;
+      const diffX = startXRef.current - currentX;
 
-      if (Math.abs(diffY) > 50) {
-        if (diffY > 0) goToNext();
+      if (Math.abs(diffX) > 50) {
+        if (diffX > 0) goToNext();
         else goToPrev();
-        startYRef.current = null;
+        startXRef.current = null;
       }
     };
 

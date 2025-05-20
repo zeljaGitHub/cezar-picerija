@@ -1,78 +1,29 @@
 import React from "react";
+import "./Text.css"; // Importujemo CSS fajl
 
 const Text = () => {
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: "0",
-        left: "14%",
-        width: "25rem",
-        height: "46rem",
-        backgroundColor: "rgba(255, 255, 255, 0.2)", // Bela boja sa 70% opacity
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        zIndex: 5,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "20px",
-        boxSizing: "border-box",
-        color: "white",
-        textAlign: "center",
-        textShadow: "1px 1px 3px rgba(0,0,0,0.8)",
-      }}
-    >
+    <div className="text-container">
       {/* Prvi blok teksta */}
-      <div style={{ marginBottom: "5rem", lineHeight: 0.8 }}>
-        <div style={{ fontSize: "3.3rem" }}>NA 5 LOKACIJA</div>
-        <div
-          style={{
-            fontSize: "5.75rem",
-            marginTop: "10px",
-            color: "#fbca0c",
-          }}
-        >
-          U GRADU
-        </div>
+      <div className="text-block first-block">
+        <div className="text-line">NA 5 LOKACIJA</div>
+        <div className="text-line yellow-text">U GRADU</div>
       </div>
 
       {/* Drugi blok teksta */}
-      <div style={{ marginBottom: "5rem", lineHeight: 0.8 }}>
-        <div style={{ fontSize: "3.05rem" }}>DOSTAVA</div>
-        <div
-          style={{
-            fontSize: "4.77rem",
-            marginTop: "10px",
-            color: "#fbca0c",
-          }}
-        >
-          018588588
-        </div>
+      <div className="text-block second-block">
+        <div className="text-line">DOSTAVA</div>
+        <div className="text-line yellow-text">018588588</div>
       </div>
 
       {/* Treći blok teksta */}
-      <div style={{ lineHeight: 0.8 }}>
-        <div style={{ fontSize: "4.3rem" }}>...I NA</div>
-
-        <div
-          style={{
-            fontSize: "7.1rem",
-            margin: "10px 0",
-            color: "#00ccff",
-          }}
-        >
-          WOLT
-        </div>
-        <div style={{ fontSize: "3.2rem" }}>APLIKACIJI</div>
+      <div className="text-block third-block">
+        <div className="text-line">...I NA</div>
+        <div className="text-line blue-text">WOLT</div>
+        <div className="text-line">APLIKACIJI</div>
       </div>
-      <img
-        src="/leafs.png"
-        alt=""
-        style={{ position: "absolute", top: "1.5%", left: "-10%" }}
-      />
+
+      <img src="/leafs.png" alt="" className="leaf-image" />
     </div>
   );
 };
