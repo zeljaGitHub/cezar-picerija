@@ -14,7 +14,7 @@ const Text = () => {
       <div className="text-block second-block">
         <div className="text-line">DOSTAVA</div>
         <div className="text-line yellow-text">
-          <a href="tel:018588588">018588588</a>
+          <a href="tel:+38118588588">018588588</a>
         </div>
       </div>
 
