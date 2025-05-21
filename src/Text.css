@@ -36,6 +36,11 @@
 
 .blue-text {
   color: #00ccff;
+  transition: color 0.3s ease;
+}
+
+.blue-text:hover {
+  color: #3976f3;
 }
 
 /* Specifični stilovi za blokove */
