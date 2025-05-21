@@ -111,7 +111,7 @@ const ImageGallery = () => {
       const currentY = e.touches[0].clientY;
       const diffY = startYRef.current - currentY;
 
-      if (Math.abs(diffY) > 30) {
+      if (Math.abs(diffY) > 50) {
         if (diffY > 0) goToNext();
         else goToPrev();
         startYRef.current = null;
