@@ -136,3 +136,61 @@
     width: 30%;
   }
 }
+
+/* ================================ */
+
+@media (max-width: 400px) {
+  .text-container {
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    background-color: transparent;
+    margin-top: 5rem;
+  }
+
+  .text-block {
+    margin-bottom: 2rem;
+  }
+
+  .first-block .text-line:first-child {
+    font-size: 1.5rem;
+  }
+
+  .first-block .yellow-text {
+    font-size: 2.5rem;
+    margin-top: 10px;
+  }
+
+  .second-block .text-line:first-child {
+    font-size: 1.2rem;
+  }
+
+  .second-block .yellow-text {
+    font-size: 1.8rem;
+    margin-top: 10px;
+  }
+
+  .third-block .text-line:first-child {
+    font-size: 1.5rem;
+  }
+
+  .third-block .blue-text {
+    font-size: 3rem;
+    margin: 10px 0;
+  }
+
+  .third-block .text-line:last-child {
+    font-size: 1.5rem;
+  }
+
+  .image-button {
+    margin-top: 20rem;
+    width: 200px;
+  }
+
+  .leaf-image {
+    left: -5%;
+    width: 30%;
+  }
+}
