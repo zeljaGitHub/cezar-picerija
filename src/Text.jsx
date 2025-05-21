@@ -26,7 +26,7 @@ const Text = () => {
           href="https://wolt.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-line blue-text wolt"
+          className="text-line blue-text wolt social-link"
         >
           WOLT
         </a>
