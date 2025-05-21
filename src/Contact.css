@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  z-index: 5; /* Osigurava da je iznad pozadine */
+  z-index: 5;
   color: #4d3d63;
 }
 
@@ -21,11 +21,14 @@
 
 .social-link {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
 }
 
 .contact-image {
-  /* Opšti stilovi za obe slike */
   transition: transform 0.3s ease;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .contact-image:hover {
@@ -41,4 +44,37 @@
 .second-image {
   width: 100px;
   height: auto;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    position: fixed;
+    top: auto;
+    bottom: 1%;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact-text {
+    flex-direction: row;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    gap: 8px;
+  }
+
+  .first-image {
+    width: 60px;
+    height: 78px;
+    margin-bottom: 0;
+    margin-left: 15px;
+  }
+
+  .second-image {
+    width: 65px;
+    height: auto;
+  }
 }
