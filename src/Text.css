@@ -21,8 +21,17 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
+.text-blocks-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 5rem;
+}
+
 .text-block {
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
   line-height: 0.8;
 }
 
@@ -192,5 +201,11 @@
   .leaf-image {
     left: -5%;
     width: 30%;
+  }
+}
+
+@media (min-width: 2555px) {
+  .text-container {
+    left: 12%;
   }
 }

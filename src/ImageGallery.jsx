@@ -9,6 +9,9 @@ const ImageGallery = () => {
   const galleryRef = useRef(null);
   const startYRef = useRef(null);
 
+  const [transitionClass, setTransitionClass] = useState("");
+  const [prevIndex, setPrevIndex] = useState(0);
+
   const desktopImages = [
     "/desktop-gallery/cezar-desktop-1.png",
     "/desktop-gallery/cezar-desktop-2.png",
@@ -65,11 +68,31 @@ const ImageGallery = () => {
   const closeGallery = () => setIsOpen(false);
 
   const goToPrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    if (isMobile) {
+      setTransitionClass("slide-up");
+      setPrevIndex(currentIndex);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+        setTransitionClass("slide-in");
+        setTimeout(() => setTransitionClass(""), 500);
+      }, 50);
+    } else {
+      setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    }
   };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    if (isMobile) {
+      setTransitionClass("slide-up");
+      setPrevIndex(currentIndex);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+        setTransitionClass("slide-in");
+        setTimeout(() => setTransitionClass(""), 500);
+      }, 50);
+    } else {
+      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }
   };
 
   useEffect(() => {
@@ -169,10 +192,22 @@ const ImageGallery = () => {
           )}
 
           <div className="gallery-content">
+            {isMobile && prevIndex !== currentIndex && (
+              <img
+                src={images[prevIndex]}
+                alt={`Gallery image ${prevIndex + 1}`}
+                className={`gallery-image ${
+                  transitionClass.includes("slide-up") ? "slide-up" : ""
+                }`}
+                style={{ position: "absolute" }}
+              />
+            )}
             <img
               src={images[currentIndex]}
               alt={`Gallery image ${currentIndex + 1}`}
-              className="gallery-image"
+              className={`gallery-image ${
+                transitionClass.includes("slide-in") ? "slide-in" : ""
+              }`}
             />
             <div className="image-counter">
               {currentIndex + 1} / {images.length}
