@@ -79,3 +79,19 @@
     height: auto;
   }
 }
+
+/* =========================== */
+
+@media (max-width: 768px) {
+  .contact-text {
+    font-size: 1.6rem;
+  }
+  .first-image {
+    width: 35px;
+    height: auto;
+  }
+  .second-image {
+    width: 35px;
+    height: auto;
+  }
+}
