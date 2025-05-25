@@ -1,13 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import "./ImageGallery.css";
-import GalleryButton from "./GalleryButton";
 
-const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
+const ImageGallery = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const [transitioningImages, setTransitioningImages] = useState([]);
   const [direction, setDirection] = useState("next");
   const galleryRef = useRef(null);
   const startYRef = useRef(null);
+  const audioRef = useRef(null);
 
   const desktopImages = [
     "/desktop-gallery/cezar-desktop-1.png",
@@ -30,6 +32,7 @@ const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
   ];
 
   useEffect(() => {
+    // Preload all mobile gallery images
     mobileImages.forEach((imageSrc) => {
       const img = new Image();
       img.src = imageSrc;
@@ -38,13 +41,26 @@ const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
 
   const images = isMobile ? mobileImages : desktopImages;
 
-  const handleClick = () => {
-    if (onOpenGallery) onOpenGallery(true);
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 768);
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const playSound = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
   };
 
-  const closeGallery = () => {
-    if (onCloseGallery) onCloseGallery(false);
+  const handleClick = () => {
+    playSound();
+    setTimeout(() => setIsOpen(true), 150);
   };
+
+  const closeGallery = () => setIsOpen(false);
 
   const animateTransition = (newIndex, dir) => {
     const oldImage = images[currentIndex];
@@ -67,7 +83,7 @@ const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
     setTimeout(() => {
       setCurrentIndex(newIndex);
       setTransitioningImages([]);
-    }, 600);
+    }, 600); // match CSS duration
   };
 
   const goToNext = () => {
@@ -135,7 +151,13 @@ const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
 
   return (
     <div className="gallery-container">
-      {!isMobile && <GalleryButton onClick={handleClick} />}
+      <audio ref={audioRef} src="/bell.mp3" preload="auto" />
+
+      <button
+        onClick={handleClick}
+        className="image-button"
+        aria-label="Open gallery"
+      />
 
       {isOpen && (
         <div className="gallery-overlay" ref={galleryRef}>

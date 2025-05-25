@@ -168,7 +168,7 @@
   }
 
   .image-button {
-    margin-top: 0;
+    margin-top: 31rem;
     width: 400px;
     height: 200px;
   }
@@ -207,7 +207,7 @@
   overflow: hidden;
 }
 
-/* .gallery-image {
+.gallery-image {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -216,7 +216,7 @@
   transform: translate(-50%, -50%);
   object-fit: contain;
   z-index: 1;
-} */
+}
 
 .mobile-in-next {
   animation: slideInFromBottom 0.6s ease forwards;
