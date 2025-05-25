@@ -106,7 +106,7 @@
   }
 
   .text-block {
-    margin-bottom: 4rem;
+    /* margin-bottom: 4rem; */
   }
 
   .first-block .text-line:first-child {
@@ -155,6 +155,7 @@
     height: auto;
     padding: 15px;
     background-color: transparent;
+    margin-top: 4rem;
   }
 
   .text-block {
@@ -189,13 +190,12 @@
   }
 
   .third-block .text-line:last-child {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
   }
 
   .image-button {
     margin-top: 23rem;
     width: 200px;
-    z-index: 20;
   }
 
   .leaf-image {

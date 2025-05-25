@@ -5,12 +5,11 @@ const ImageGallery = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const audioRef = useRef(null);
+  const [transitioningImages, setTransitioningImages] = useState([]);
+  const [direction, setDirection] = useState("next");
   const galleryRef = useRef(null);
   const startYRef = useRef(null);
-
-  const [transitionClass, setTransitionClass] = useState("");
-  const [prevIndex, setPrevIndex] = useState(0);
+  const audioRef = useRef(null);
 
   const desktopImages = [
     "/desktop-gallery/cezar-desktop-1.png",
@@ -32,23 +31,13 @@ const ImageGallery = () => {
     "/mobile-gallery/cezar-mobile-7.png",
   ];
 
-  // Dodajte u komponentu
-  useEffect(() => {
-    // Preload pressed button image
-    const img = new Image();
-    img.src = "/dugme-pritisnuto.png";
-  }, []);
-
   const images = isMobile ? mobileImages : desktopImages;
 
   useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkIfMobile();
-    window.addEventListener("resize", checkIfMobile);
-    return () => window.removeEventListener("resize", checkIfMobile);
+    setIsMobile(window.innerWidth <= 768);
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
   const playSound = () => {
@@ -60,70 +49,47 @@ const ImageGallery = () => {
 
   const handleClick = () => {
     playSound();
-    setTimeout(() => {
-      setIsOpen(true);
-    }, 150);
+    setTimeout(() => setIsOpen(true), 150);
   };
 
   const closeGallery = () => setIsOpen(false);
 
-  const goToPrev = () => {
-    if (isMobile) {
-      setTransitionClass("slide-up");
-      setPrevIndex(currentIndex);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-        setTransitionClass("slide-in");
-        setTimeout(() => setTransitionClass(""), 500);
-      }, 50);
-    } else {
-      setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    }
+  const animateTransition = (newIndex, dir) => {
+    const oldImage = images[currentIndex];
+    const newImage = images[newIndex];
+
+    setDirection(dir);
+    setTransitioningImages([
+      {
+        src: oldImage,
+        key: "out",
+        className: `gallery-image mobile-out-${dir}`,
+      },
+      {
+        src: newImage,
+        key: "in",
+        className: `gallery-image mobile-in-${dir}`,
+      },
+    ]);
+
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setTransitioningImages([]);
+    }, 500); // match CSS duration
   };
 
   const goToNext = () => {
-    if (isMobile) {
-      setTransitionClass("slide-up");
-      setPrevIndex(currentIndex);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-        setTransitionClass("slide-in");
-        setTimeout(() => setTransitionClass(""), 500);
-      }, 50);
-    } else {
-      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }
+    const nextIndex = (currentIndex + 1) % images.length;
+    animateTransition(nextIndex, "next");
+  };
+
+  const goToPrev = () => {
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    animateTransition(prevIndex, "prev");
   };
 
   useEffect(() => {
-    if (!isOpen) return;
-
-    const handleKeyDown = (e) => {
-      if (e.key === "ArrowLeft") goToPrev();
-      if (e.key === "ArrowRight") goToNext();
-      if (e.key === "Escape") closeGallery();
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, currentIndex, isMobile]);
-
-  useEffect(() => {
-    if (!isOpen || isMobile) return;
-
-    const handleWheel = (e) => {
-      if (e.deltaY > 0) goToNext();
-      else if (e.deltaY < 0) goToPrev();
-    };
-
-    window.addEventListener("wheel", handleWheel);
-    return () => window.removeEventListener("wheel", handleWheel);
-  }, [isOpen, currentIndex, isMobile]);
-
-  useEffect(() => {
     if (!isOpen || !isMobile || !galleryRef.current) return;
-
-    const galleryElement = galleryRef.current;
 
     const handleTouchStart = (e) => {
       startYRef.current = e.touches[0].clientY;
@@ -131,26 +97,22 @@ const ImageGallery = () => {
 
     const handleTouchMove = (e) => {
       if (!startYRef.current) return;
-      const currentY = e.touches[0].clientY;
-      const diffY = startYRef.current - currentY;
+      const deltaY = e.touches[0].clientY - startYRef.current;
 
-      if (Math.abs(diffY) > 50) {
-        if (diffY > 0) goToNext();
+      if (Math.abs(deltaY) > 50) {
+        if (deltaY < 0) goToNext();
         else goToPrev();
         startYRef.current = null;
       }
     };
 
-    galleryElement.addEventListener("touchstart", handleTouchStart, {
-      passive: true,
-    });
-    galleryElement.addEventListener("touchmove", handleTouchMove, {
-      passive: true,
-    });
+    const gallery = galleryRef.current;
+    gallery.addEventListener("touchstart", handleTouchStart, { passive: true });
+    gallery.addEventListener("touchmove", handleTouchMove, { passive: true });
 
     return () => {
-      galleryElement.removeEventListener("touchstart", handleTouchStart);
-      galleryElement.removeEventListener("touchmove", handleTouchMove);
+      gallery.removeEventListener("touchstart", handleTouchStart);
+      gallery.removeEventListener("touchmove", handleTouchMove);
     };
   }, [isOpen, currentIndex, isMobile]);
 
@@ -169,46 +131,23 @@ const ImageGallery = () => {
             ×
           </button>
 
-          {!isMobile && (
-            <>
-              <button onClick={goToPrev} className="nav-button left-arrow">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                  <path
-                    fill="white"
-                    d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
-                  />
-                </svg>
-              </button>
-
-              <button onClick={goToNext} className="nav-button right-arrow">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                  <path
-                    fill="white"
-                    d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-                  />
-                </svg>
-              </button>
-            </>
-          )}
-
           <div className="gallery-content">
-            {isMobile && prevIndex !== currentIndex && (
+            {transitioningImages.length > 0 ? (
+              transitioningImages.map((img) => (
+                <img
+                  key={img.key}
+                  src={img.src}
+                  className={img.className}
+                  alt=""
+                />
+              ))
+            ) : (
               <img
-                src={images[prevIndex]}
-                alt={`Gallery image ${prevIndex + 1}`}
-                className={`gallery-image ${
-                  transitionClass.includes("slide-up") ? "slide-up" : ""
-                }`}
-                style={{ position: "absolute" }}
+                src={images[currentIndex]}
+                className="gallery-image"
+                alt=""
               />
             )}
-            <img
-              src={images[currentIndex]}
-              alt={`Gallery image ${currentIndex + 1}`}
-              className={`gallery-image ${
-                transitionClass.includes("slide-in") ? "slide-in" : ""
-              }`}
-            />
             <div className="image-counter">
               {currentIndex + 1} / {images.length}
             </div>

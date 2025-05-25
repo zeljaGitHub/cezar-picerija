@@ -85,13 +85,14 @@
 @media (max-width: 768px) {
   .contact-text {
     font-size: 1.6rem;
+    margin-top: 1rem;
   }
   .first-image {
-    width: 35px;
+    width: 40px;
     height: auto;
   }
   .second-image {
-    width: 35px;
+    width: 40px;
     height: auto;
   }
 }

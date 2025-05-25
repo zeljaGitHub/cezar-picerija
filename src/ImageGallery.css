@@ -139,15 +139,14 @@
 @media (max-width: 768px) {
   .gallery-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     max-width: 100vw;
-    max-height: 80vh;
+    max-height: 100vh;
     object-fit: contain;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: transform 0.5s ease-in-out;
   }
 
   .gallery-content {
@@ -197,5 +196,81 @@
   }
   .second-image {
     scale: 1.2;
+  }
+}
+
+.gallery-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  z-index: 1;
+}
+
+.mobile-in-next {
+  animation: slideInFromBottom 0.6s ease forwards;
+  z-index: 2;
+}
+.mobile-out-next {
+  animation: slideOutToTop 0.6s ease forwards;
+  z-index: 1;
+}
+.mobile-in-prev {
+  animation: slideInFromTop 0.6s ease forwards;
+  z-index: 2;
+}
+.mobile-out-prev {
+  animation: slideOutToBottom 0.6s ease forwards;
+  z-index: 1;
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+@keyframes slideOutToTop {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -150%);
+    opacity: 0;
+  }
+}
+@keyframes slideInFromTop {
+  from {
+    transform: translate(-50%, -150%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+@keyframes slideOutToBottom {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, 100%);
+    opacity: 0;
   }
 }
