@@ -1,15 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import "./ImageGallery.css";
+import GalleryButton from "./GalleryButton";
 
-const ImageGallery = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const [transitioningImages, setTransitioningImages] = useState([]);
   const [direction, setDirection] = useState("next");
   const galleryRef = useRef(null);
   const startYRef = useRef(null);
-  const audioRef = useRef(null);
 
   const desktopImages = [
     "/desktop-gallery/cezar-desktop-1.png",
@@ -32,7 +30,6 @@ const ImageGallery = () => {
   ];
 
   useEffect(() => {
-    // Preload all mobile gallery images
     mobileImages.forEach((imageSrc) => {
       const img = new Image();
       img.src = imageSrc;
@@ -41,26 +38,13 @@ const ImageGallery = () => {
 
   const images = isMobile ? mobileImages : desktopImages;
 
-  useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
-    const onResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  const playSound = () => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play();
-    }
-  };
-
   const handleClick = () => {
-    playSound();
-    setTimeout(() => setIsOpen(true), 150);
+    if (onOpenGallery) onOpenGallery(true);
   };
 
-  const closeGallery = () => setIsOpen(false);
+  const closeGallery = () => {
+    if (onCloseGallery) onCloseGallery(false);
+  };
 
   const animateTransition = (newIndex, dir) => {
     const oldImage = images[currentIndex];
@@ -83,7 +67,7 @@ const ImageGallery = () => {
     setTimeout(() => {
       setCurrentIndex(newIndex);
       setTransitioningImages([]);
-    }, 600); // match CSS duration
+    }, 600);
   };
 
   const goToNext = () => {
@@ -151,13 +135,7 @@ const ImageGallery = () => {
 
   return (
     <div className="gallery-container">
-      <audio ref={audioRef} src="/bell.mp3" preload="auto" />
-
-      <button
-        onClick={handleClick}
-        className="image-button"
-        aria-label="Open gallery"
-      />
+      {!isMobile && <GalleryButton onClick={handleClick} />}
 
       {isOpen && (
         <div className="gallery-overlay" ref={galleryRef}>
