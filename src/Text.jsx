@@ -1,17 +1,16 @@
 import React from "react";
-import "./Text.css"; // Importujemo CSS fajl
+import "./Text.css";
+import GalleryButton from "./GalleryButton";
 
-const Text = () => {
+const Text = ({ isMobile, onOpenGallery }) => {
   return (
     <div className="text-container">
       <div className="text-blocks-wrapper">
-        {/* Prvi blok teksta */}
         <div className="text-block first-block">
           <div className="text-line">NA 5 LOKACIJA</div>
           <div className="text-line yellow-text">U GRADU</div>
         </div>
 
-        {/* Drugi blok teksta */}
         <div className="text-block second-block">
           <div className="text-line">DOSTAVA</div>
           <div className="text-line yellow-text">
@@ -19,7 +18,6 @@ const Text = () => {
           </div>
         </div>
 
-        {/* Treći blok teksta */}
         <div className="text-block third-block">
           <div className="text-line">...I NA</div>
           <a
@@ -32,6 +30,12 @@ const Text = () => {
           </a>
           <div className="text-line">APLIKACIJI</div>
         </div>
+
+        {isMobile && (
+          <div className="text-block fourth-block">
+            <GalleryButton onClick={() => onOpenGallery(true)} />
+          </div>
+        )}
       </div>
 
       <img src="/leafs.png" alt="" className="leaf-image" />

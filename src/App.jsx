@@ -5,6 +5,7 @@ import Text from "./Text";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -25,9 +26,14 @@ function App() {
       />
       <img src="/pica.png" alt="" className="pica rotate" />
       <img src="/cvetici.png" alt="" className="cvetici" />
-      <ImageGallery />
+      <ImageGallery
+        isMobile={isMobile}
+        isOpen={isGalleryOpen}
+        onOpenGallery={setIsGalleryOpen}
+        onCloseGallery={setIsGalleryOpen}
+      />
       <Contact />
-      <Text />
+      <Text isMobile={isMobile} onOpenGallery={setIsGalleryOpen} />
     </div>
   );
 }

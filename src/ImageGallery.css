@@ -116,6 +116,7 @@
   background: rgba(0, 0, 0, 0.7);
   padding: 5px 15px;
   border-radius: 20px;
+  z-index: 13;
 }
 
 .nav-button svg {
@@ -167,7 +168,7 @@
   }
 
   .image-button {
-    margin-top: 31rem;
+    margin-top: 0;
     width: 400px;
     height: 200px;
   }
