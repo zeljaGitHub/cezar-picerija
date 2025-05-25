@@ -31,6 +31,14 @@ const ImageGallery = () => {
     "/mobile-gallery/cezar-mobile-7.png",
   ];
 
+  useEffect(() => {
+    // Preload all mobile gallery images
+    mobileImages.forEach((imageSrc) => {
+      const img = new Image();
+      img.src = imageSrc;
+    });
+  }, []);
+
   const images = isMobile ? mobileImages : desktopImages;
 
   useEffect(() => {
@@ -75,7 +83,7 @@ const ImageGallery = () => {
     setTimeout(() => {
       setCurrentIndex(newIndex);
       setTransitioningImages([]);
-    }, 500); // match CSS duration
+    }, 600); // match CSS duration
   };
 
   const goToNext = () => {
@@ -87,6 +95,31 @@ const ImageGallery = () => {
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
     animateTransition(prevIndex, "prev");
   };
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") goToPrev();
+      if (e.key === "ArrowRight") goToNext();
+      if (e.key === "Escape") closeGallery();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, currentIndex, isMobile]);
+
+  useEffect(() => {
+    if (!isOpen || isMobile) return;
+
+    const handleWheel = (e) => {
+      if (e.deltaY > 0) goToNext();
+      else if (e.deltaY < 0) goToPrev();
+    };
+
+    window.addEventListener("wheel", handleWheel);
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, [isOpen, currentIndex, isMobile]);
 
   useEffect(() => {
     if (!isOpen || !isMobile || !galleryRef.current) return;
@@ -130,6 +163,28 @@ const ImageGallery = () => {
           <button onClick={closeGallery} className="close-button">
             ×
           </button>
+
+          {!isMobile && (
+            <>
+              <button onClick={goToPrev} className="nav-button left-arrow">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                  <path
+                    fill="white"
+                    d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                  />
+                </svg>
+              </button>
+
+              <button onClick={goToNext} className="nav-button right-arrow">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                  <path
+                    fill="white"
+                    d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                  />
+                </svg>
+              </button>
+            </>
+          )}
 
           <div className="gallery-content">
             {transitioningImages.length > 0 ? (
