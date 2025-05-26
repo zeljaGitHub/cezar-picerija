@@ -100,7 +100,7 @@
   }
 
   .text-blocks-wrapper {
-    gap: 3.5rem;
+    gap: 3rem;
   }
 
   .first-block .text-line:first-child {
@@ -145,6 +145,10 @@
     padding: 15px;
     background-color: transparent;
     margin-top: 5.5rem;
+  }
+
+  .text-blocks-wrapper {
+    gap: 3.5rem;
   }
 
   .text-block {

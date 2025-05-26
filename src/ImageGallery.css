@@ -218,6 +218,8 @@
   z-index: 1;
 }
 
+/* ===================================================== */
+
 .mobile-in-next {
   animation: slideInFromBottom 0.6s ease forwards;
   z-index: 2;

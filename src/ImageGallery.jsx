@@ -30,6 +30,11 @@ const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
   ];
 
   useEffect(() => {
+    const img = new Image();
+    img.src = "/dugme-pritisnuto.png";
+  }, []);
+
+  useEffect(() => {
     mobileImages.forEach((imageSrc) => {
       const img = new Image();
       img.src = imageSrc;
