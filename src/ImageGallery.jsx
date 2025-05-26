@@ -10,23 +10,23 @@ const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
   const startYRef = useRef(null);
 
   const desktopImages = [
-    "/desktop-gallery/cezar-desktop-1.png",
-    "/desktop-gallery/cezar-desktop-2.png",
-    "/desktop-gallery/cezar-desktop-3.png",
-    "/desktop-gallery/cezar-desktop-4.png",
-    "/desktop-gallery/cezar-desktop-5.png",
-    "/desktop-gallery/cezar-desktop-6.png",
-    "/desktop-gallery/cezar-desktop-7.png",
+    "/desktop-gallery/cezar-desktop-1.jpg",
+    "/desktop-gallery/cezar-desktop-2.jpg",
+    "/desktop-gallery/cezar-desktop-3.jpg",
+    "/desktop-gallery/cezar-desktop-4.jpg",
+    "/desktop-gallery/cezar-desktop-5.jpg",
+    "/desktop-gallery/cezar-desktop-6.jpg",
+    "/desktop-gallery/cezar-desktop-7.jpg",
   ];
 
   const mobileImages = [
-    "/mobile-gallery/cezar-mobile-1.png",
-    "/mobile-gallery/cezar-mobile-2.png",
-    "/mobile-gallery/cezar-mobile-3.png",
-    "/mobile-gallery/cezar-mobile-4.png",
-    "/mobile-gallery/cezar-mobile-5.png",
-    "/mobile-gallery/cezar-mobile-6.png",
-    "/mobile-gallery/cezar-mobile-7.png",
+    "/mobile-gallery/cezar-mobile-1.jpg",
+    "/mobile-gallery/cezar-mobile-2.jpg",
+    "/mobile-gallery/cezar-mobile-3.jpg",
+    "/mobile-gallery/cezar-mobile-4.jpg",
+    "/mobile-gallery/cezar-mobile-5.jpg",
+    "/mobile-gallery/cezar-mobile-6.jpg",
+    "/mobile-gallery/cezar-mobile-7.jpg",
   ];
 
   useEffect(() => {

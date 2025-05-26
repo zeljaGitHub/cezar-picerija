@@ -20,7 +20,7 @@ const GalleryButton = ({ onClick }) => {
       <audio ref={audioRef} src="/belll.mp3" preload="auto" />
       <button
         onClick={handleClick}
-        className="image-button social-link"
+        className="image-button"
         aria-label="Open gallery"
       />
     </>
