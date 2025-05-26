@@ -37,8 +37,6 @@ const Text = ({ isMobile, onOpenGallery }) => {
           </div>
         )}
       </div>
-
-      <img src="/leafs.png" alt="" className="leaf-image" />
     </div>
   );
 };
