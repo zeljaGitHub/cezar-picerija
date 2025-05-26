@@ -17,7 +17,7 @@ const GalleryButton = ({ onClick }) => {
 
   return (
     <>
-      <audio ref={audioRef} src="/bell.mp3" preload="auto" />
+      <audio ref={audioRef} src="/belll.mp3" preload="auto" />
       <button
         onClick={handleClick}
         className="image-button social-link"

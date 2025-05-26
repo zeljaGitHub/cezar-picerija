@@ -51,18 +51,34 @@ const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
     const newImage = images[newIndex];
 
     setDirection(dir);
-    setTransitioningImages([
-      {
-        src: oldImage,
-        key: "out",
-        className: `gallery-image mobile-out-${dir}`,
-      },
-      {
-        src: newImage,
-        key: "in",
-        className: `gallery-image mobile-in-${dir}`,
-      },
-    ]);
+
+    if (isMobile) {
+      setTransitioningImages([
+        {
+          src: oldImage,
+          key: "out",
+          className: `gallery-image mobile-out-${dir}`,
+        },
+        {
+          src: newImage,
+          key: "in",
+          className: `gallery-image mobile-in-${dir}`,
+        },
+      ]);
+    } else {
+      setTransitioningImages([
+        {
+          src: oldImage,
+          key: "out",
+          className: `gallery-image desktop-out-${dir}`,
+        },
+        {
+          src: newImage,
+          key: "in",
+          className: `gallery-image desktop-in-${dir}`,
+        },
+      ]);
+    }
 
     setTimeout(() => {
       setCurrentIndex(newIndex);

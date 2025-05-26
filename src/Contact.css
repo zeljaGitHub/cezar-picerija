@@ -50,7 +50,7 @@
 
 @media (max-width: 768px) {
   .contact-container {
-    position: fixed;
+    position: absolute;
     top: auto;
     bottom: 1%;
     right: 5%;

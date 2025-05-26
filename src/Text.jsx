@@ -21,7 +21,7 @@ const Text = ({ isMobile, onOpenGallery }) => {
         <div className="text-block third-block">
           <div className="text-line">...I NA</div>
           <a
-            href="https://wolt.com"
+            href="https://wolt.com/sr/srb/nis/nis-cezar"
             target="_blank"
             rel="noopener noreferrer"
             className="text-line blue-text wolt social-link"

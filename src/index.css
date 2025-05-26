@@ -152,6 +152,9 @@ body {
     overflow-x: hidden;
     overflow-y: visible;
   } */
+  .image-container {
+    overflow: hidden;
+  }
   .pica {
     display: none;
   }

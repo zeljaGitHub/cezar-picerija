@@ -275,3 +275,62 @@
     opacity: 0;
   }
 }
+
+/* Add these new animations for desktop */
+.desktop-in-next {
+  animation: slideInFromRight 0.6s ease forwards;
+  z-index: 2;
+}
+.desktop-out-next {
+  animation: slideOutToLeft 0.6s ease forwards;
+  z-index: 1;
+}
+.desktop-in-prev {
+  animation: slideInFromLeft 0.6s ease forwards;
+  z-index: 2;
+}
+.desktop-out-prev {
+  animation: slideOutToRight 0.6s ease forwards;
+  z-index: 1;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translate(100%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+@keyframes slideOutToLeft {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-150%, -50%);
+    opacity: 0;
+  }
+}
+@keyframes slideInFromLeft {
+  from {
+    transform: translate(-150%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+@keyframes slideOutToRight {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(100%, -50%);
+    opacity: 0;
+  }
+}
