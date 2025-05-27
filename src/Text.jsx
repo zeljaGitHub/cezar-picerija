@@ -36,6 +36,39 @@ const Text = ({ isMobile, onOpenGallery }) => {
             <GalleryButton onClick={() => onOpenGallery(true)} />
           </div>
         )}
+
+        <div className="contact-container-mobile">
+          {/* Vertikalni tekst KONTAKT */}
+          <div className="contact-text-mobile">KONTAKT</div>
+
+          {/* Facebook link */}
+          <a
+            href="https://www.facebook.com/cezarfastfood/?locale=sr_RS"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <img
+              src="/facebook-mobile.png"
+              alt="Facebook"
+              className="contact-image first-image"
+            />
+          </a>
+
+          {/* Instagram link */}
+          <a
+            href="https://www.instagram.com/cezarfastfood/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <img
+              src="/instagram-mobile.png"
+              alt="Instagram"
+              className="contact-image second-image"
+            />
+          </a>
+        </div>
       </div>
     </div>
   );

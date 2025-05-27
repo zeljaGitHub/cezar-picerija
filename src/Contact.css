@@ -50,15 +50,7 @@
 
 @media (max-width: 768px) {
   .contact-container {
-    position: absolute;
-    top: auto;
-    bottom: 1%;
-    right: 5%;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    width: 80vw;
+    display: none !important;
   }
 
   .contact-text {

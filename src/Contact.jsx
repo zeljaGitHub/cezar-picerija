@@ -2,9 +2,6 @@ import React from "react";
 import "./Contact.css";
 
 const Contact = () => {
-  // Determine if it's mobile based on screen width
-  const isMobile = window.innerWidth <= 768;
-
   return (
     <div className="contact-container">
       {/* Vertikalni tekst KONTAKT */}
@@ -22,7 +19,7 @@ const Contact = () => {
         className="social-link"
       >
         <img
-          src={isMobile ? "/facebook-mobile.png" : "/facebook.png"}
+          src="/facebook.png"
           alt="Facebook"
           className="contact-image first-image"
         />
@@ -36,7 +33,7 @@ const Contact = () => {
         className="social-link"
       >
         <img
-          src={isMobile ? "/instagram-mobile.png" : "/instagram.png"}
+          src="/instagram.png"
           alt="Instagram"
           className="contact-image second-image"
         />
