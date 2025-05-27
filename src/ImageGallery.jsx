@@ -57,33 +57,19 @@ const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
 
     setDirection(dir);
 
-    if (isMobile) {
-      setTransitioningImages([
-        {
-          src: oldImage,
-          key: "out",
-          className: `gallery-image mobile-out-${dir}`,
-        },
-        {
-          src: newImage,
-          key: "in",
-          className: `gallery-image mobile-in-${dir}`,
-        },
-      ]);
-    } else {
-      setTransitioningImages([
-        {
-          src: oldImage,
-          key: "out",
-          className: `gallery-image desktop-out-${dir}`,
-        },
-        {
-          src: newImage,
-          key: "in",
-          className: `gallery-image desktop-in-${dir}`,
-        },
-      ]);
-    }
+    // Use same animation classes for both mobile and desktop
+    setTransitioningImages([
+      {
+        src: oldImage,
+        key: "out",
+        className: `gallery-image desktop-out-${dir}`,
+      },
+      {
+        src: newImage,
+        key: "in",
+        className: `gallery-image desktop-in-${dir}`,
+      },
+    ]);
 
     setTimeout(() => {
       setCurrentIndex(newIndex);
@@ -130,16 +116,16 @@ const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
     if (!isOpen || !isMobile || !galleryRef.current) return;
 
     const handleTouchStart = (e) => {
-      startYRef.current = e.touches[0].clientY;
+      startYRef.current = e.touches[0].clientX; // Change to clientX for horizontal swipe
     };
 
     const handleTouchMove = (e) => {
       if (!startYRef.current) return;
-      const deltaY = e.touches[0].clientY - startYRef.current;
+      const deltaX = e.touches[0].clientX - startYRef.current; // Change to deltaX
 
-      if (Math.abs(deltaY) > 40) {
-        if (deltaY < 0) goToNext();
-        else goToPrev();
+      if (Math.abs(deltaX) > 40) {
+        if (deltaX < 0) goToNext(); // Swipe left
+        else goToPrev(); // Swipe right
         startYRef.current = null;
       }
     };

@@ -220,7 +220,7 @@
 
 /* ===================================================== */
 
-.mobile-in-next {
+/* .mobile-in-next {
   animation: slideInFromBottom 0.6s ease forwards;
   z-index: 2;
 }
@@ -276,7 +276,7 @@
     transform: translate(-50%, 100%);
     opacity: 0;
   }
-}
+} */
 
 /* Add these new animations for desktop */
 .desktop-in-next {
