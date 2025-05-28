@@ -156,7 +156,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: -1.2rem;
+    margin-top: -1.6rem;
   }
 
   .contact-text-mobile {
@@ -179,6 +179,10 @@
 
   .logo {
     width: 180px;
+  }
+
+  .blue-text:hover {
+    color: #00ccff;
   }
 }
 
