@@ -148,10 +148,10 @@ body {
 }
 
 @media (max-width: 768px) {
-  .image-container {
+  /* .image-container {
     overflow-x: hidden;
     overflow-y: visible;
-  }
+  } */
   .pica {
     display: none;
   }
