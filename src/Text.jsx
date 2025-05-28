@@ -38,6 +38,10 @@ const Text = ({ isMobile, onOpenGallery }) => {
   return (
     <div className="text-container">
       <div className="text-blocks-wrapper" style={isMobile ? scaleStyle : {}}>
+        {isMobile && (
+          <img src="/logo.png" alt="cezar-picerija-logo" className="logo" />
+        )}
+
         <div className="text-block first-block">
           <div className="text-line">NA 5 LOKACIJA</div>
           <div className="text-line yellow-text">U GRADU</div>
