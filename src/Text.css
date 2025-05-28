@@ -91,16 +91,32 @@
 /* Media upiti za responzivnost */
 @media (max-width: 768px) {
   .text-container {
-    left: 0;
+    position: fixed; /* Menjamo iz absolute u fixed za bolje centriranje */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Pravo centriranje */
     width: 100%;
+    max-width: 25rem; /* Opciono: ograniči maksimalnu širinu */
     height: auto;
     padding: 15px;
     background-color: transparent;
-    margin-top: 8rem;
+    margin: 0; /* Uklanjamo margin-top jer centriramo transformom */
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
   }
 
   .text-blocks-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 3rem;
+    transform: scale(var(--dynamic-scale, 1));
+    transform-origin: center;
   }
 
   .first-block .text-line:first-child {
@@ -133,79 +149,13 @@
   .third-block .text-line:last-child {
     font-size: 2.5rem;
   }
-}
 
-/* ================================ */
-
-@media (max-width: 400px) {
-  .text-container {
-    left: 0;
-    width: 100%;
-    height: auto;
-    padding: 15px;
-    background-color: transparent;
-    margin-top: 5.5rem;
-  }
-
-  .text-blocks-wrapper {
-    gap: 3.5rem;
-  }
-
-  .text-block {
-    margin-bottom: -2rem;
-  }
-
-  .first-block .text-line:first-child {
-    font-size: 1.5rem;
-  }
-
-  .first-block .yellow-text {
-    font-size: 2.6rem;
-    margin-top: 10px;
-  }
-
-  .second-block .text-line:first-child {
-    font-size: 1.5rem;
-  }
-
-  .second-block .yellow-text {
-    font-size: 2.1rem;
-    margin-top: 10px;
-  }
-
-  .third-block .text-line:first-child {
-    font-size: 1.5rem;
-  }
-
-  .third-block .blue-text {
-    font-size: 3.5rem;
-    margin: 10px 0;
-  }
-
-  .third-block .text-line:last-child {
-    font-size: 1.55rem;
-  }
-
-  .image-button {
-    margin-top: 0;
-    width: 200px;
-    height: 150px;
-  }
-}
-
-@media (min-width: 2555px) {
-  .text-container {
-    left: 12%;
-  }
-}
-
-@media (max-width: 768px) {
   .contact-container-mobile {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     margin-top: -1rem;
   }
 
@@ -228,19 +178,10 @@
   }
 }
 
-/* =========================== */
+/* ================================ */
 
-@media (max-width: 768px) {
-  .contact-text-mobile {
-    font-size: 1.6rem;
-    margin-top: 1rem;
-  }
-  .first-image {
-    width: 40px;
-    height: auto;
-  }
-  .second-image {
-    width: 40px;
-    height: auto;
+@media (min-width: 769px) {
+  .contact-container-mobile {
+    display: none !important;
   }
 }
