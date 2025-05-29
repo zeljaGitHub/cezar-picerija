@@ -126,6 +126,7 @@ body {
   right: 0;
   top: 20%;
   scale: 0.95;
+  transition: right 0.3s ease, top 0.3s ease;
 }
 
 @keyframes rotateInfinite {
@@ -159,8 +160,11 @@ body {
   }
 
   .pica {
-    display: none;
+    /* Inline stilovi će override-ovati ovo */
+    right: var(--pica-right, -62%);
+    top: var(--pica-top, -20%);
   }
+
   .cvetici {
     display: none;
   }
