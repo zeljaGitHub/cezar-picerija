@@ -114,7 +114,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.75rem;
+    gap: 2.3rem;
     transform: scale(var(--dynamic-scale, 1));
     transform-origin: center;
   }
@@ -156,7 +156,7 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    margin-top: -2.1rem;
+    margin-top: -2rem;
   }
 
   .contact-text-mobile {
@@ -170,15 +170,18 @@
     height: 60px;
     margin-bottom: 0;
     margin-left: 15px;
+    margin-top: -1.2rem;
   }
 
   .second-image {
     width: 70px;
     height: auto;
+    margin-top: -1rem;
   }
 
   .logo {
     width: 130px;
+    margin-bottom: 1.6rem;
   }
 
   .blue-text:hover {
