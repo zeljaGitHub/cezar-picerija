@@ -114,7 +114,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.3rem;
+    gap: 2.25rem;
     transform: scale(var(--dynamic-scale, 1));
     transform-origin: center;
   }
@@ -156,7 +156,7 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    margin-top: -2rem;
+    margin-top: -1.9rem;
   }
 
   .contact-text-mobile {
@@ -181,7 +181,7 @@
 
   .logo {
     width: 130px;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.7rem;
   }
 
   .blue-text:hover {
