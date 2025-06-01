@@ -170,7 +170,7 @@
   .image-button {
     margin-top: 0;
     width: 400px;
-    height: 235px;
+    height: 215px;
   }
 
   .close-button {
@@ -207,7 +207,21 @@
     z-index: -1;
     transition: all 0.3s ease;
   }
+
+  .nav-button {
+    top: 94%;
+  }
+  .left-arrow {
+    scale: 0.65;
+    margin-left: 4.5rem;
+  }
+  .right-arrow {
+    scale: 0.65;
+    margin-right: 4.5rem;
+  }
 }
+
+/* ==================================================== */
 
 @media (min-width: 2555px) {
   .pica {
@@ -234,6 +248,38 @@
     scale: 1.2;
   }
 }
+
+/* =========================================== */
+
+@media (min-width: 3800px) {
+  .pica {
+    scale: 2.5;
+    top: 33%;
+  }
+  .image-button {
+    width: 1100px;
+    height: 750px;
+  }
+  .text-container {
+    transform: scale(2.2);
+    transform-origin: top left; /* ili 'center' ako ti više odgovara */
+    margin-left: -13rem;
+  }
+  .contact-text {
+    font-size: 9.5rem;
+    margin-bottom: 13.5rem;
+    margin-right: 4.7rem;
+  }
+  .first-image {
+    scale: 1.9;
+    margin-bottom: 8rem;
+  }
+  .second-image {
+    scale: 1.9;
+  }
+}
+
+/* =========================================== */
 
 .gallery-content {
   position: relative;

@@ -71,7 +71,7 @@ function App() {
   return (
     <div className="image-container">
       <img
-        src={isMobile ? "/pozadina-mobilni.jpg" : "/pozadina-samo.png"}
+        src={isMobile ? "/pozadina-mobilni.jpg" : "/pozadina-samo.jpg"}
         alt="Pozadina"
         className={`background-image ${isMobile ? "mobile-bg" : "desktop-bg"}`}
         loading="eager"

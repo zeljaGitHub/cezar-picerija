@@ -150,27 +150,25 @@ const ImageGallery = ({ isMobile, isOpen, onOpenGallery, onCloseGallery }) => {
             ×
           </button>
 
-          {!isMobile && (
-            <>
-              <button onClick={goToPrev} className="nav-button left-arrow">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                  <path
-                    fill="white"
-                    d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
-                  />
-                </svg>
-              </button>
+          <>
+            <button onClick={goToPrev} className="nav-button left-arrow">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path
+                  fill="white"
+                  d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                />
+              </svg>
+            </button>
 
-              <button onClick={goToNext} className="nav-button right-arrow">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                  <path
-                    fill="white"
-                    d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-                  />
-                </svg>
-              </button>
-            </>
-          )}
+            <button onClick={goToNext} className="nav-button right-arrow">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path
+                  fill="white"
+                  d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                />
+              </svg>
+            </button>
+          </>
 
           <div className="gallery-content">
             {transitioningImages.length > 0 ? (
