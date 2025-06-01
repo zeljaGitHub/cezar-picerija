@@ -75,7 +75,7 @@ const Text = ({ isMobile, onOpenGallery }) => {
 
         <div className="contact-container-mobile">
           {/* Vertikalni tekst KONTAKT */}
-          <div className="contact-text-mobile">KONTAKT</div>
+          <div className="contact-text-mobile">Kontakt</div>
 
           {/* Facebook link */}
           <a
